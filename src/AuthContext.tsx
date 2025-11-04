@@ -2,7 +2,8 @@
 "use client";
 import React, { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { auth, googleProvider } from "./firebaseConfig";
-import { signInWithPopup, signOut, onAuthStateChanged, User } from "firebase/auth";
+
+import { signInWithRedirect, signOut, onAuthStateChanged, User } from "firebase/auth";
 
 type AuthContextType = {
   user: User | null;
@@ -19,7 +20,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const login = async () => {
     try {
-      await signInWithPopup(auth, googleProvider);
+      await signInWithRedirect(auth, googleProvider);
     } catch (error) {
       console.error("Error al iniciar sesión:", error);
     }
