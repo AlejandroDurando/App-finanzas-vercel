@@ -636,6 +636,18 @@ function CampoEditForm({
         />
       )}
 
+      {/* Nombre del campo */}
+<div className="mb-3">
+  <label className={theme.label}>Nombre del campo:</label>
+  <input
+    type="text"
+    value={campoLocal.nombre}
+    onChange={(e) => setCampoLocal({ ...campoLocal, nombre: e.target.value })}
+    placeholder="Ej: Gastos para vivir"
+    className={`w-full p-2 rounded ${theme.input}`}
+  />
+</div>
+
       {showIconPicker && (
         <IconColorDropdown
           selectedIcon={campoLocal.icono || 'shopping-cart'}
